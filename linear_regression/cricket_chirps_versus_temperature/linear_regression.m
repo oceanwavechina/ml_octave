@@ -10,8 +10,8 @@ data
 % x the feature, we have only one 
 % y is the output, as this is supervisor leanring
 % c(1,:) % will print all headers;         c(2:end,:) % will all  data rows
-x = data(:,2);
-y = data(:,1);
+x = data(1:10,2);
+y = data(1:10,1);
 
 
 function plotData(x, y)
@@ -42,3 +42,11 @@ hold on; % this keeps our previous plot of the training data visible
 plot(X(:,2), X*theta, '-')
 legend('Training data', 'Linear regression')
 hold off % Don't put any more plots on this figure
+
+% 计算误差
+y_test= data(11:end, 1);
+y_test_pred = 24.9660 + 3.3058 * test
+error = sum(sqrt((y_test_pred - y_test) .^ 2)) / length(y_test);
+
+printf("error of hypothesis is %.4d%% \n", error);
+
