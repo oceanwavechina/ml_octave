@@ -43,9 +43,15 @@ plot(X(:,2), X*theta, '-')
 legend('Training data', 'Linear regression')
 hold off % Don't put any more plots on this figure
 
+
 % 计算误差
-y_test= data(11:end, 1);
-y_test_pred = 24.9660 + 3.3058 * test
+% x_test = data(11:end, 2);
+% y_test = data(11:end, 1);
+
+x_test = data(1:10, 2);
+y_test = data(1:10, 1);
+
+y_test_pred = theta(1) + theta(2) * x_test
 error = sum(sqrt((y_test_pred - y_test) .^ 2)) / length(y_test);
 
 printf("error of hypothesis is %.4d%% \n", error);
