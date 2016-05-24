@@ -17,7 +17,7 @@
 
 %% Initialization
 clear ; close all; clc
-
+warning('off', 'Octave:possible-matlab-short-circuit-operator');
 %% =========== Part 1: Loading and Visualizing Data =============
 %  We start the exercise by first loading and visualizing the dataset. 
 %  The following code will load the dataset into your environment and plot
@@ -104,7 +104,7 @@ pause;
 %                 see a graph with "high bias" -- slide 8 in ML-advice.pdf 
 %
 
-lambda = 0;
+lambda = 0.5;
 [error_train, error_val] = ...
     learningCurve([ones(m, 1) X], y, ...
                   [ones(size(Xval, 1), 1) Xval], yval, ...
@@ -164,7 +164,7 @@ pause;
 %  lambda to see how the fit and learning curve change.
 %
 
-lambda = 0;
+lambda = 3;
 [theta] = trainLinearReg(X_poly, y, lambda);
 
 % Plot training data and fit

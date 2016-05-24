@@ -20,10 +20,15 @@ grad = zeros(size(theta));
 %
 
 
+% 抄一遍公式而已，2*m 要括起来！！！！ 
+% 最后一项 要加一列 0， 这是为啥？？ sum( [0;theta(2:end)] .^ 2 );
+J = (1 / (2 * m)) * sum(( X * theta - y ) .^ 2) + (lambda / (2 * m)) * sum( [0;theta(2:end)] .^ 2 );
 
 
-
-
+% 注意theta0 不能 regularization
+grad = 1 / m * (X' * ( X * theta -y));
+tmp = grad + lambda / m * theta;
+grad = [grad(1:1); tmp(2:end)];
 
 
 
