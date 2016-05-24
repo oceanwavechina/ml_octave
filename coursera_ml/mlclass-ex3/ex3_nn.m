@@ -73,6 +73,7 @@ pause;
 %  Randomly permute examples
 rp = randperm(m);
 
+% 准确率是 97.520000％ ，比logistric regression的 94.780000％ 要高些
 for i = 1:m
     % Display 
     fprintf('\nDisplaying Example Image\n');

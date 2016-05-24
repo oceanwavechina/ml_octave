@@ -20,9 +20,11 @@ grad = zeros(size(theta));
 h = sigmoid(X * theta);
 
 % fuck ! lambda/(2*m) 表达式忘记了括号
+% theta 1 不能被regularization
 J = (1 / m) * sum(-y .* log(h) - (1-y) .* log(1-h)) + (lambda / (2*m)) * sum(theta(2:length(theta), 1) .^ 2);
 
 % 我们只要grad中的第一个元素
+% 这个tmp就是reguarization后的所有 J 对 theta_j 的导数， 我们只要替换掉第一个就好了，因为第一个是不用lambda regularizaiton
 grad = (1 / m) .* X'*(h .- y) ;
 tmp = grad + (lambda / m) * theta;
 grad = [grad(1, 1); tmp(2: length(theta), 1)];

@@ -48,8 +48,20 @@ for j = 1:display_rows
 	end
 end
 
+
 % Display Image
-h = imagesc(display_array, [-1 1]);
+set(gca,'YDir','Reverse')
+set(gca,'XDir','Reverse')
+
+% Images upside down
+% This issue popped-up in January 2015, 
+% when someone working on gnuplot decided to change the default image orientation. 
+% I understand there is a command to switch it back, 
+% but I don't have it at hand. 
+% An internet search for "gnuplot invert" might be fruitful.
+% For anyone else with this issue the function needed is flipud()
+% h = imagesc(flipud(display_array), [-1 1]);
+h = imagesc(flipud(display_array), [-1 1]);
 
 % Do not show axis
 axis image off

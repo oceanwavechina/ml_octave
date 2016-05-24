@@ -13,8 +13,8 @@ data = csvread ('Advertising.csv');
 
 % 区分训练数据和测试数据
 data_length = length(data);
-training_data_length =  ceil(length(data) * 0.8);
-test_data_length =  data_length - ceil(length(data) * 0.8);
+training_data_length =  ceil(length(data) * 1);
+test_data_length =  data_length - ceil(length(data) * 1);
 data_length, training_data_length, test_data_length
 
 

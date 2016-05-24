@@ -33,7 +33,7 @@ X = [ones(m, 1) X];
 
 % disp(sigmoid(X * all_theta'));
 [c, i] = max(sigmoid(X * all_theta'), [], 2);
-disp([c, i])
+disp([c, i]);
 p = i;
 
 
