@@ -18,7 +18,10 @@ end
 
 % Plot the SVM boundary
 hold on
-contour(X1, X2, vals, [0 0], 'Color', 'b');
+% contour(X1, X2, vals, [0 0], 'Color', 'b');
+% http://savannah.gnu.org/bugs/?41096
+% https://www.coursera.org/learn/machine-learning/discussions/all/threads/Vo2koB6dEeWHGCIACznL2w
+contour(X1, X2, vals, [0 0], 'linecolor');
 hold off;
 
 end
